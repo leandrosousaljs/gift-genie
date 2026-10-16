@@ -5,24 +5,18 @@ const openai = new OpenAI({
   baseURL: process.env.AI_URL,
 });
 
-const userPrompt = 'Suggest some gifts for someone who loves programming';
-
-const userMessage = {
-  role: 'user' as const,
-  content: userPrompt,
-};
-
-console.log('Prompt:', userPrompt);
-console.log('Making AI request...');
-
 try {
-  const aiResponse = await openai.chat.completions.create({
+  const response = await openai.chat.completions.create({
     model: process.env.AI_MODEL as string,
-    messages: [userMessage],
+    messages: [
+      {
+        role: 'user',
+        content: `Suggest some gifts for someone who loves programming. Make these suggestions thoughtful and practical. Your response must be under 100 words. Skip intros and conclusions. Only output gift suggestions.`,
+      },
+    ],
   });
 
-  console.log('AI Response:');
-  console.log(aiResponse.choices[0].message?.content);
+  console.log(response.choices[0].message?.content);
 } catch (error) {
   if (error instanceof OpenAI.APIError) {
     if (error.status === 401 || error.status === 403) {
@@ -30,5 +24,5 @@ try {
     }
   }
 
-  console.error('Error making AI request:', error);
+  console.error('Error making AI request: ', error);
 }
