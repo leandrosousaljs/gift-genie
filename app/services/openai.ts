@@ -7,8 +7,13 @@ const openai = new OpenAI({
 
 const messages: OpenAI.ChatCompletionMessageParam[] = [
   {
+    role: 'system',
+    content:
+      'Make these suggestions thoughtful and practical. Your response must be under 100 words. Skip intros and conclusions. Only output gift suggestions.',
+  },
+  {
     role: 'user',
-    content: `Suggest some gifts for someone who loves programming. Make these suggestions thoughtful and practical. Your response must be under 100 words. Skip intros and conclusions. Only output gift suggestions.`,
+    content: `Suggest some gifts for someone who loves programming. `,
   },
 ];
 
