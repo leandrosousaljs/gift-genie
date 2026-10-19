@@ -1,10 +1,23 @@
 export default function Home() {
   return (
     <div>
-      <h1>Gift-Genie</h1>
-      <label>
-        <input type="text" id="gift-idea" name="gift-idea" placeholder="Enter a gift idea..." />
-      </label>
+      <header>
+        <img src="" alt="" />
+        <h1>Gift Genie</h1>
+      </header>
+
+      <main>
+        <form>
+          <textarea placeholder="Enter a gift idea..." />
+
+          <button type="submit">
+            <img src="" alt="" />
+            <span>Rub the Lamp</span>
+          </button>
+        </form>
+
+        <section></section>
+      </main>
     </div>
   );
 }
