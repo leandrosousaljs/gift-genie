@@ -1,4 +1,8 @@
+import { useState } from 'react';
+
 export default function Home() {
+  const [userPrompt, setUserPrompt] = useState('');
+
   return (
     <div>
       <header>
@@ -8,7 +12,7 @@ export default function Home() {
 
       <main>
         <form>
-          <textarea placeholder="Enter a gift idea..." />
+          <textarea onChange={(e) => setUserPrompt(e.target.value)} placeholder="Enter a gift idea..." />
 
           <button type="submit">
             <img src="" alt="" />
