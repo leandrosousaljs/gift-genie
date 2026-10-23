@@ -1,3 +1,5 @@
+'use server';
+
 import { OpenAI } from 'openai';
 
 const openai = new OpenAI({
@@ -24,7 +26,7 @@ export const getAIResponse = async (userPrompt: string): Promise<string | void> 
       messages,
     });
 
-    return response.choices[0].message?.content || '';
+    return response.choices[0].message?.content ?? '';
   } catch (error) {
     if (error instanceof OpenAI.APIError) {
       if (error.status === 401 || error.status === 403) {

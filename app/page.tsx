@@ -19,16 +19,16 @@ export default function Home() {
   return (
     <div>
       <header>
-        <img src="" alt="" />
+        <img src="#" alt="" />
         <h1>Gift Genie</h1>
       </header>
 
       <main>
         <form action={handleSubmit}>
-          <textarea name="userPrompt" id="userPrompt" placeholder="Enter a gift idea..." />
+          <textarea name="userPrompt" id="userPrompt" placeholder="Enter a gift idea..." required />
 
           <button type="submit">
-            <img src="" alt="" />
+            <img src="#" alt="" />
             <span>Rub the Lamp</span>
           </button>
         </form>
