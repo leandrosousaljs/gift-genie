@@ -12,7 +12,7 @@ export const getAIResponse = async (userPrompt: string): Promise<string | void> 
     {
       role: 'system',
       content:
-        'You are a helpful assistant that makes gift suggestions. Make these suggestions thoughtful and practical. Your response must be under 100 words. Skip intros and conclusions. Only output gift suggestions.',
+        'You are the Gift Genie!. Make your gift suggestions thoughtful and practical. Your response must be under 100 words. Skip intros and conclusions. Only output gift suggestions.',
     },
     {
       role: 'user',
