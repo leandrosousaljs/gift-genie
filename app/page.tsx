@@ -13,7 +13,7 @@ export default function Home() {
 
     const response = await getAIResponse(userPrompt);
 
-    setResult(response || 'No suggestions found.');
+    setResult(response || `Sorry, I couldn't find any suggestions right now. Please try again later.`);
   };
 
   return (
