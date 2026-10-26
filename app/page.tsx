@@ -1,10 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { marked } from 'marked';
+import DOMPurify from 'dompurify';
+
+import { Button } from '@/components/ui/button';
 import { getAIResponse } from './services/openai';
 
 export default function Home() {
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState<string | null>(null);
 
   const handleSubmit = async (formData: FormData): Promise<void> => {
     const userPrompt = formData.get('userPrompt');
@@ -13,7 +17,10 @@ export default function Home() {
 
     const response = await getAIResponse(userPrompt);
 
-    setResult(response || `Sorry, I couldn't find any suggestions right now. Please try again later.`);
+    const html = marked.parse(response as string);
+    const sanitizedHtml = DOMPurify.sanitize(html as string);
+
+    setResult(sanitizedHtml);
   };
 
   return (
@@ -32,16 +39,18 @@ export default function Home() {
             required
           />
 
-          <button type="submit">
+          <Button type="submit">
             <img src="#" alt="Lamp" />
             <span>Rub the Lamp</span>
-          </button>
+          </Button>
         </form>
 
-        <section>
-          <p>{result}</p>
-        </section>
+        <section>{result}</section>
       </main>
+
+      <footer>
+        <p>&copy; {new Date().getFullYear()} Gift Genie.</p>
+      </footer>
     </div>
   );
 }

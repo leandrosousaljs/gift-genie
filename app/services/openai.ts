@@ -7,7 +7,7 @@ const openai = new OpenAI({
   baseURL: process.env.AI_URL,
 });
 
-export const getAIResponse = async (userPrompt: string): Promise<string | void> => {
+export const getAIResponse = async (userPrompt: string): Promise<string> => {
   const messages: OpenAI.ChatCompletionMessageParam[] = [
     {
       role: 'system',
@@ -22,17 +22,14 @@ export const getAIResponse = async (userPrompt: string): Promise<string | void> 
 
   try {
     const response = await openai.chat.completions.create({
-      model: process.env.AI_MODEL as string,
+      model: 'process.env.AI_MODEL as string',
       messages,
     });
 
     return response.choices[0].message?.content ?? '';
   } catch (error) {
-    if (error instanceof OpenAI.APIError) {
-      if (error.status === 401 || error.status === 403) {
-        console.error("Authentication error: Check your AI_KEY and make sure it's valid", error);
-      }
-    }
     console.error('Error making AI request: ', error);
+
+    return `Sorry, I couldn't find any suggestions right now. Please try again later.`;
   }
 };
