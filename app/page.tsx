@@ -1,8 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { marked } from 'marked';
-import DOMPurify from 'dompurify';
+import ReactMarkdown from 'react-markdown';
 
 import { Button } from '@/components/ui/button';
 import { getAIResponse } from './services/openai';
@@ -16,11 +15,7 @@ export default function Home() {
     if (typeof userPrompt !== 'string') return;
 
     const response = await getAIResponse(userPrompt);
-
-    const html = marked.parse(response as string);
-    const sanitizedHtml = DOMPurify.sanitize(html as string);
-
-    setResult(sanitizedHtml);
+    setResult(response);
   };
 
   return (
@@ -45,11 +40,11 @@ export default function Home() {
           </Button>
         </form>
 
-        <section>{result}</section>
+        <section>{result && <ReactMarkdown>{result}</ReactMarkdown>}</section>
       </main>
 
       <footer>
-        <p>&copy; {new Date().getFullYear()} Gift Genie.</p>
+        <p>&copy; {new Date().getFullYear()} Gift Genie</p>
       </footer>
     </div>
   );
