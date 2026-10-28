@@ -12,7 +12,7 @@ export const getAIResponse = async (userPrompt: string): Promise<string> => {
     {
       role: 'system',
       content:
-        'You are the Gift Genie!. Make your gift suggestions thoughtful and practical. Your response must be under 100 words. Skip intros and conclusions. Only output gift suggestions. Format your response as a markdown bullet list.',
+        'You are the Gift Genie!. Make your gift suggestions thoughtful and practical. Your response must be under 100 words. Skip intros and conclusions. Only output gift suggestions.',
     },
     {
       role: 'user',
@@ -21,12 +21,19 @@ export const getAIResponse = async (userPrompt: string): Promise<string> => {
   ];
 
   try {
-    const response = await openai.chat.completions.create({
+    const stream = await openai.chat.completions.create({
       model: process.env.AI_MODEL as string,
       messages,
+      stream: true,
     });
 
-    return response.choices[0].message?.content ?? '';
+    let giftSuggestions = '';
+
+    for await (const chunk of stream) {
+      giftSuggestions += chunk.choices[0].delta.content;
+    }
+
+    return giftSuggestions;
   } catch (error) {
     console.error('Error making AI request: ', error);
 

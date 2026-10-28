@@ -44,7 +44,12 @@ export default function Home() {
       </main>
 
       <footer>
-        <p>&copy; {new Date().getFullYear()} Gift Genie</p>
+        <p>
+          Developed by{' '}
+          <a href="https://www.linkedin.com/in/leandrosousaljs/" target="_blank" rel="noopener noreferrer">
+            Leandro Sousa
+          </a>
+        </p>
       </footer>
     </div>
   );
