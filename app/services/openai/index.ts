@@ -11,7 +11,7 @@ const openai = new OpenAI({
 export const getAIResponse = async (userPrompt: string): Promise<string> => {
   messages.push({
     role: 'user',
-    content: userPrompt,
+    content: `Generate fresh gift ideas for this new user request: ${userPrompt}`,
   });
 
   try {
