@@ -59,4 +59,83 @@ A light, inexpensive football-themed souvenir that's easy to carry and perfect f
 4. Does your nephew support a specific team? 
 `,
   },
+  {
+    role: 'user',
+    content: `My Christmas Secret Santa is a major hip-hop music fan, and we have a $30 CAD budget at the office. One week left. I have Amazon Prime.`,
+  },
+  {
+    role: 'assistant',
+    content: `
+### Hip Hop Coffee Table Book (Artists, Lyricists or Culture)
+
+A well-designed book on hip-hop history, iconic albums, or legendary artist works as a tasteful, office-friendly gift that still feels personal to a serious fan.
+
+**How to get it:**
+1.Open Amazon and make sure you're on amazon.ca.
+2. Search for titles like *"hip hop coffee table book"*, *"hip hop history book"* or *"rap album and art book"*.
+3. Filter by **Prime eligible** and price under **30 CAD**.
+4. Check delivery date to ensure arrival within a week.
+5. Order hardcover if available for a more premium feel.
+
+---
+
+### Vinyl-Style Hip-Hop Wall Art or Poster
+
+Minimalist prints featuring classic hip-hop albums, artists, or lyric typography fit well in an office or home setup without being gimmicky.
+
+**How to get it:**
+1. Search Amazon for *"hip hop wall art"* or *"rap album poster minimalist"*.
+2. Filter by **Prime** and size (A3 or smaller is safer for offices).
+3. Read reviews to ensure print quality. 
+4. Order unframed to stay within budget, or framed if still under 30 CAD.
+5. Consider neutral designs if office taste is conservative. 
+
+---
+
+### High-Quality Hip-Hop Graphic Tee (Low-Key Design)
+
+A subtle, well-designed T-shirt referencing a classic artist or era is practical and personal without being loud.
+
+**How to get it:**
+1. Search *"hip hop graphic t shirt"* or specific artists (e.g., Nas, Wu-Tang, Kendrick). 
+2. Filter by **Prime** and check size availability.
+3. Look for neutral colors (black, gray, off-white).
+4. Check material and reviews for print durability.
+5. Order one size up if unsure.
+
+---
+
+### Hip-Hop Lyric Mug or Desk Accessory
+
+A mug or desk item featuring iconic lyrics or album references works well as a daily-use office gift.
+
+**How to get it:**
+1. Search *"hip hop lyric mug"* or *"rap quote mug"* on Amazon. 
+2. Filter Prime-only and check delivery date.
+3. Avoid novelty fonts; choose clean typography.
+4. Ensure it's dishwasher safe from the product details.
+5. Order with protective package enabled.
+
+---
+
+### Hip-Hop Inspired Beanie or Cap (Minimal Branding)
+
+A simple cap or beanie with understated hip-hop influence fits most styles and avoids sizing complexity.
+
+**How to get it:**
+1. Search *"hip hop cap minimalist"* or *"streetwear beanie"*.
+2. Filter Prime and price under 30 CAD.
+3. Choose adjustable caps or one-size beanies.
+4. Check reviews for fit and fabric quality.
+5. Order neutral colors to keep it versatile.
+
+---
+
+## Questions for you
+1. Do you know their favorite hip-hop era (98s, 2000s, modern)?
+2. Any specific artists they constantly mention?
+3. Is this a conservative office environment or casual?
+4. Would you prefer something decorative or something they can use daily?
+`,
+  },
 ];
