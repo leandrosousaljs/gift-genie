@@ -1,7 +1,8 @@
 'use server';
 
 import { OpenAI } from 'openai';
-import { messages } from './messages';
+
+import { instructions } from './instructions';
 
 const openai = new OpenAI({
   apiKey: process.env.AI_KEY,
@@ -9,25 +10,15 @@ const openai = new OpenAI({
 });
 
 export const getAIResponse = async (userPrompt: string): Promise<string> => {
-  messages.push({
-    role: 'user',
-    content: `Generate fresh gift ideas for this new user request: ${userPrompt}`,
-  });
-
   try {
-    const stream = await openai.chat.completions.create({
+    const response = await openai.responses.create({
       model: process.env.AI_MODEL as string,
-      messages,
-      stream: true,
+      instructions,
+      input: userPrompt,
+      tools: [{ type: 'web_search' }],
     });
 
-    let giftSuggestions = '';
-
-    for await (const chunk of stream) {
-      giftSuggestions += chunk.choices[0].delta.content;
-    }
-
-    return giftSuggestions;
+    return response.output_text;
   } catch (error) {
     console.error('Error making AI request: ', error);
 
