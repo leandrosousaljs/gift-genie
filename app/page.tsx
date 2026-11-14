@@ -11,6 +11,7 @@ export default function Home() {
 
   const { completion, complete, isLoading, error } = useCompletion({
     api: '/api/recommend',
+    streamProtocol: 'text',
   });
 
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
@@ -46,7 +47,7 @@ export default function Home() {
           </Button>
         </form>
 
-        {isLoading && !completion && <p>Buscando ideias...</p>}
+        {isLoading && !completion && <p>Searching for ideas...</p>}
 
         <section>{completion && <ReactMarkdown>{completion}</ReactMarkdown>}</section>
 

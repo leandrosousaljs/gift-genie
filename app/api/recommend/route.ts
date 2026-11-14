@@ -9,18 +9,27 @@ const openai = createOpenAI({
 });
 
 export async function POST(req: Request) {
-  const { prompt } = await req.json();
+  try {
+    const { prompt } = await req.json();
 
-  const result = streamText({
-    model: openai.responses(process.env.AI_MODEL as string),
-    system: instructions,
-    prompt,
-    tools: {
-      web_search: openai.tools.webSearch({}),
-    },
-  });
+    const result = streamText({
+      model: openai.responses(process.env.AI_MODEL as string),
+      system: instructions,
+      prompt: `Generate fresh gift suggestions for this request: ${prompt}`,
+      tools: {
+        web_search: openai.tools.webSearch({}),
+      },
+      onError({ error }) {
+        console.error('Streaming error:', error);
+      },
+    });
 
-  return createTextStreamResponse({
-    stream: toTextStream({ stream: result.stream }),
-  });
+    return createTextStreamResponse({
+      stream: toTextStream({ stream: result.stream }),
+    });
+  } catch (error) {
+    console.error('Error in /api/recommend:', error);
+
+    return Response.json({ error: 'Failed to generate gift suggestions.' }, { status: 500 });
+  }
 }
