@@ -1,10 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import { useCompletion } from '@ai-sdk/react';
 
 import { Button } from '@/components/ui/button';
+
+import genie from '@/public/genie.svg';
+import lamp from '@/public/lamp.svg';
 
 export default function Home() {
   const [userPrompt, setUserPrompt] = useState('');
@@ -26,7 +30,7 @@ export default function Home() {
   return (
     <div>
       <header>
-        <img src="#" alt="Gift Genie" />
+        <Image src={genie} alt="Gift Genie" />
         <h1>Gift Genie</h1>
       </header>
 
@@ -42,7 +46,7 @@ export default function Home() {
           />
 
           <Button type="submit" disabled={isLoading}>
-            <img src="#" alt="Lamp" />
+            <Image src={lamp} alt="Lamp" />
             <span>{isLoading ? 'Thinking...' : 'Rub the Lamp'}</span>
           </Button>
         </form>
