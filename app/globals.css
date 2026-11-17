@@ -121,9 +121,80 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
   }
   html {
     @apply font-sans;
+  }
+}
+
+/* Gift Genie Custom Theme */
+:root {
+  /* Background - Dark purple */
+  --bg-primary: lch(12% 15 290);
+
+  /* Accent System - Golden Amber */
+  --accent-primary: lch(75% 65 85);
+  --accent-glow: lch(80% 70 80);
+  --accent-hover: lch(80% 75 85);
+
+  /* Text */
+  --text-primary: lch(92% 0 0);
+  --text-secondary: lch(70% 8 285);
+
+  /* Animation */
+  --transition-quick: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rubLamp {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+    filter: drop-shadow(0 0 5px var(--accent-glow));
+  }
+  25% {
+    transform: rotate(-10deg) translate(-5px, 0);
+  }
+  50% {
+    transform: rotate(0deg) translate(0, 0);
+    filter: drop-shadow(0 0 30px var(--accent-hover));
+  }
+  75% {
+    transform: rotate(10deg) translate(5px, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate(0, 0);
+    filter: drop-shadow(0 0 5px var(--accent-glow));
+  }
+}
+
+/* Custom utility classes for animations */
+@layer utilities {
+  .animate-fade-in-down {
+    animation: fadeInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-rub-lamp {
+    animation: rubLamp 0.8s ease-in-out infinite;
+  }
+
+  .transition-smooth {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .transition-quick {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
