@@ -2,8 +2,6 @@
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: var(--font-sans);
@@ -48,72 +46,53 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
+  --background: lch(12% 15 290);
+  --foreground: lch(92% 0 0);
+  --card: lch(12% 15 290);
+  --card-foreground: lch(92% 0 0);
+  --popover: lch(12% 15 290);
+  --popover-foreground: lch(92% 0 0);
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --primary: lch(75% 65 85);
+  --primary-foreground: lch(12% 15 290);
+  --secondary: lch(20% 10 290);
+  --secondary-foreground: lch(92% 0 0);
+  --muted: lch(20% 10 290);
+  --muted-foreground: lch(70% 8 285);
+  --accent: lch(80% 70 80);
+  --accent-foreground: lch(12% 15 290);
+  --destructive: lch(0.577 0.245 27.325);
+  --destructive-foreground: lch(92% 0 0);
+
+  --border: lch(25% 10 290);
+  --input: lch(25% 10 290);
+  --ring: lch(80% 70 80);
+
+  --chart-1: lch(75% 65 85);
+  --chart-2: lch(80% 70 80);
+  --chart-3: lch(70% 60 90);
+  --chart-4: lch(85% 65 75);
+  --chart-5: lch(65% 55 95);
+
+  --radius: 0.625rem;
+
+  --sidebar: lch(10% 12 290);
+  --sidebar-foreground: lch(92% 0 0);
+  --sidebar-primary: lch(75% 65 85);
+  --sidebar-primary-foreground: lch(12% 15 290);
+  --sidebar-accent: lch(20% 10 290);
+  --sidebar-accent-foreground: lch(92% 0 0);
+  --sidebar-border: lch(25% 10 290);
+  --sidebar-ring: lch(80% 70 80);
+
+  --bg-primary: lch(12% 15 290);
+  --accent-primary: lch(75% 65 85);
+  --accent-glow: lch(80% 70 80);
+  --accent-hover: lch(80% 75 85);
+  --text-primary: lch(92% 0 0);
+  --text-secondary: lch(70% 8 285);
+  --transition-quick: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @layer base {
@@ -128,26 +107,6 @@
   }
 }
 
-/* Gift Genie Custom Theme */
-:root {
-  /* Background - Dark purple */
-  --bg-primary: lch(12% 15 290);
-
-  /* Accent System - Golden Amber */
-  --accent-primary: lch(75% 65 85);
-  --accent-glow: lch(80% 70 80);
-  --accent-hover: lch(80% 75 85);
-
-  /* Text */
-  --text-primary: lch(92% 0 0);
-  --text-secondary: lch(70% 8 285);
-
-  /* Animation */
-  --transition-quick: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Custom Animations */
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -180,7 +139,6 @@
   }
 }
 
-/* Custom utility classes for animations */
 @layer utilities {
   .animate-fade-in-down {
     animation: fadeInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);

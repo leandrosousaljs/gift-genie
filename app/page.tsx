@@ -26,10 +26,7 @@ export default function Home() {
   };
 
   return (
-    <div
-      className="max-w-[800px] mx-auto px-6 py-6 min-h-screen flex flex-col"
-      style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}
-    >
+    <div className="max-w-[800px] mx-auto px-6 py-6 min-h-screen flex flex-col">
       <header className="text-center animate-fade-in-down">
         <div className="flex items-center justify-center gap-4">
           <Image
