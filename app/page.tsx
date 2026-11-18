@@ -16,7 +16,7 @@ export default function Home() {
     streamProtocol: 'text',
   });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!userPrompt.trim()) return;
@@ -30,7 +30,6 @@ export default function Home() {
       className="max-w-[800px] mx-auto px-6 py-6 min-h-screen flex flex-col"
       style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}
     >
-      {/* Header */}
       <header className="text-center animate-fade-in-down">
         <div className="flex items-center justify-center gap-4">
           <Image
@@ -47,9 +46,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="flex-1">
-        {/* Form */}
         <form onSubmit={handleSubmit} className="mb-2">
           <div className="w-full flex">
             <textarea
@@ -64,7 +61,6 @@ export default function Home() {
             />
           </div>
 
-          {/* Lamp Button */}
           <div
             className={`flex flex-col items-center my-8 max-[480px]:my-4 transition-all duration-[0.4s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
               isLoading ? 'scale-90' : ''
@@ -96,20 +92,12 @@ export default function Home() {
                 className="text-[1.5rem] max-[480px]:text-[1.5rem] font-semibold opacity-90 transition-all duration-[0.4s] ease-[cubic-bezier(0.16,1,0.3,1)]"
                 style={{ color: 'var(--text-secondary)' }}
               >
-                {isLoading ? 'Thinking...' : 'Rub the Lamp'}
+                {isLoading ? 'Summoning Gift Ideas...' : 'Rub the Lamp'}
               </span>
             </button>
           </div>
         </form>
 
-        {/* Loading State */}
-        {isLoading && !completion && (
-          <p className="text-center" style={{ color: 'var(--text-secondary)' }}>
-            Searching for ideas...
-          </p>
-        )}
-
-        {/* Output Section */}
         <section className="pb-4">
           {completion && (
             <div
@@ -121,32 +109,16 @@ export default function Home() {
                 <ReactMarkdown
                   components={{
                     p: ({ children }) => <p className="mb-1">{children}</p>,
-                    ul: ({ children }) => (
-                      <ul className="list-disc pl-4 my-1">{children}</ul>
-                    ),
-                    ol: ({ children }) => (
-                      <ol className="list-decimal pl-4 my-1">{children}</ol>
-                    ),
-                    li: ({ children }) => (
-                      <li
-                        className="mb-1 pl-1 marker:text-[var(--accent-glow)]"
-                      >
-                        {children}
-                      </li>
-                    ),
+                    ul: ({ children }) => <ul className="list-disc pl-4 my-1">{children}</ul>,
+                    ol: ({ children }) => <ol className="list-decimal pl-4 my-1">{children}</ol>,
+                    li: ({ children }) => <li className="mb-1 pl-1 marker:text-[var(--accent-glow)]">{children}</li>,
                     h3: ({ children }) => (
-                      <h3
-                        className="mt-2 mb-1 font-bold text-lg"
-                        style={{ color: 'var(--accent-primary)' }}
-                      >
+                      <h3 className="mt-2 mb-1 font-bold text-lg" style={{ color: 'var(--accent-primary)' }}>
                         {children}
                       </h3>
                     ),
                     h4: ({ children }) => (
-                      <h4
-                        className="mt-2 mb-1 font-bold text-base"
-                        style={{ color: 'var(--accent-primary)' }}
-                      >
+                      <h4 className="mt-2 mb-1 font-bold text-base" style={{ color: 'var(--accent-primary)' }}>
                         {children}
                       </h4>
                     ),
@@ -159,20 +131,18 @@ export default function Home() {
           )}
         </section>
 
-        {/* Error State */}
         {error && (
           <p className="text-center" style={{ color: 'var(--text-secondary)' }}>
-            Sorry, I couldn&apos;t find any suggestions right now. Please try again later.
+            Sorry, the genie has vanished. Please try again later.
           </p>
         )}
       </main>
 
-      {/* Footer */}
       <footer className="text-center py-4">
         <p style={{ color: 'var(--text-secondary)' }}>
           Developed by{' '}
           <a
-            href="https://www.linkedin.com/in/leandrosousaljs/"
+            href="https://www.github.com/leandrosousaljs/"
             target="_blank"
             rel="noopener noreferrer"
             className="underline hover:opacity-80 transition-opacity"
