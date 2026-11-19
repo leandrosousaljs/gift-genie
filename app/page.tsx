@@ -49,7 +49,7 @@ export default function Home() {
             <textarea
               name="userPrompt"
               id="userPrompt"
-              placeholder="e.g. My friend who loves hiphop music has a birthday coming up..."
+              placeholder="e.g., My friend who loves hiphop music has a birthday coming up in 3 days. 40-60 bucks budget. I live in..."
               value={userPrompt}
               onChange={(e) => setUserPrompt(e.target.value)}
               required
@@ -66,7 +66,7 @@ export default function Home() {
             <button
               type="submit"
               disabled={isLoading}
-              className={`bg-transparent border-none cursor-pointer outline-none flex flex-col items-center gap-4 tap-transparent transition-transform duration-200 ease-[cubic-bezier(0.4,0,0.2,1)] disabled:cursor-default disabled:opacity-100 hover:scale-110 hover:-rotate-5 focus:scale-110 focus:-rotate-5 ${
+              className={`bg-transparent border-none cursor-pointer outline-none flex flex-col items-center gap-4 tap-transparent disabled:cursor-default disabled:opacity-100 ${
                 isLoading ? '' : ''
               }`}
               style={{ background: 'transparent' }}
@@ -76,7 +76,7 @@ export default function Home() {
                 alt="Lamp"
                 width={156}
                 height={156}
-                className={`w-[156px] h-[156px] max-[480px]:w-32 max-[480px]:h-32 transition-all duration-[0.4s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                className={`w-[156px] h-[156px] max-[480px]:w-32 max-[480px]:h-32 transition-all duration-[0.4s] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-110 hover:-rotate-5 focus:scale-110 focus:-rotate-5 ${
                   isLoading ? 'animate-rub-lamp' : ''
                 }`}
                 style={{
@@ -86,7 +86,7 @@ export default function Home() {
                 }}
               />
               <span
-                className="text-[1.5rem] max-[480px]:text-[1.5rem] font-semibold opacity-90 transition-all duration-[0.4s] ease-[cubic-bezier(0.16,1,0.3,1)]"
+                className="text-[1.5rem] max-[480px]:text-[1.5rem] font-semibold opacity-90"
                 style={{ color: 'var(--text-secondary)' }}
               >
                 {isLoading ? 'Summoning Gift Ideas...' : 'Rub the Lamp'}
