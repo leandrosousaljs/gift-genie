@@ -1,7 +1,7 @@
 import { createOpenAI } from '@ai-sdk/openai';
 import { createTextStreamResponse, streamText, toTextStream } from 'ai';
 
-import { instructions } from '@/app/services/openai/instructions';
+import { instructions } from '@/app/api/recommend/instructions';
 
 const openai = createOpenAI({
   apiKey: process.env.AI_KEY,
