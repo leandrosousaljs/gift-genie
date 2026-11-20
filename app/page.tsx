@@ -26,7 +26,7 @@ export default function Home() {
   };
 
   return (
-    <div className="max-w-[800px] mx-auto px-6 py-6 min-h-screen flex flex-col">
+    <div className="max-w-200 mx-auto px-6 py-6 min-h-screen flex flex-col">
       <header className="text-center animate-fade-in-down">
         <div className="flex items-center justify-center gap-4">
           <Image
@@ -34,7 +34,7 @@ export default function Home() {
             alt="Gift Genie"
             width={60}
             height={60}
-            className="w-[60px] h-[60px] max-[480px]:w-12 max-[480px]:h-12"
+            className="w-15 h-15 max-[480px]:w-12 max-[480px]:h-12"
             style={{ filter: 'drop-shadow(0 0 8px var(--accent-glow))' }}
           />
           <h1 className="text-[clamp(2rem,5vw,2.5rem)] font-extrabold tracking-[-0.02em] max-[480px]:text-xl">
@@ -49,11 +49,11 @@ export default function Home() {
             <textarea
               name="userPrompt"
               id="userPrompt"
-              placeholder="e.g., My friend who loves hiphop music has a birthday coming up in 3 days. 40-60 bucks budget. I live in..."
+              placeholder="e.g., My sister who loves hiking, sci-fi and discovering new places to eat..."
               value={userPrompt}
               onChange={(e) => setUserPrompt(e.target.value)}
               required
-              className="flex-1 bg-transparent border-none border-b-2 border-white/20 rounded-none min-h-[calc(1.5em*3+1.2rem)] leading-normal py-3 px-0 text-[1.2rem] max-[480px]:text-[1.25rem] font-inherit resize-none transition-[border-color] duration-300 ease-in-out overflow-y-hidden focus:outline-none focus:border-[var(--accent-primary)] placeholder:text-white/40"
+              className="flex-1 bg-transparent border-0 border-b-2 border-white/20 rounded-none min-h-[calc(1.5em*3+1.2rem)] leading-normal py-3 px-0 text-[1.2rem] max-[480px]:text-[1.25rem] font-inherit resize-none transition-[border-color] duration-300 ease-in-out overflow-y-hidden focus:outline-none focus:border-(--accent-primary) placeholder:text-white/40"
               style={{ color: 'var(--text-primary)' }}
             />
           </div>
@@ -76,7 +76,7 @@ export default function Home() {
                 alt="Lamp"
                 width={156}
                 height={156}
-                className={`w-[156px] h-[156px] max-[480px]:w-32 max-[480px]:h-32 transition-all duration-[0.4s] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-110 hover:-rotate-5 focus:scale-110 focus:-rotate-5 ${
+                className={`w-39 h-39 max-[480px]:w-32 max-[480px]:h-32 transition-all duration-[0.4s] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-110 hover:-rotate-5 focus:scale-110 focus:-rotate-5 ${
                   isLoading ? 'animate-rub-lamp' : ''
                 }`}
                 style={{
@@ -108,7 +108,7 @@ export default function Home() {
                     p: ({ children }) => <p className="mb-1">{children}</p>,
                     ul: ({ children }) => <ul className="list-disc pl-4 my-1">{children}</ul>,
                     ol: ({ children }) => <ol className="list-decimal pl-4 my-1">{children}</ol>,
-                    li: ({ children }) => <li className="mb-1 pl-1 marker:text-[var(--accent-glow)]">{children}</li>,
+                    li: ({ children }) => <li className="mb-1 pl-1 marker:text-(--accent-glow)">{children}</li>,
                     h3: ({ children }) => (
                       <h3 className="mt-2 mb-1 font-bold text-lg" style={{ color: 'var(--accent-primary)' }}>
                         {children}
