@@ -1,5 +1,12 @@
 @import 'tailwindcss';
 
+@theme inline {
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
 :root {
   --background: lch(12% 15 290);
   --foreground: lch(92% 0 0);
