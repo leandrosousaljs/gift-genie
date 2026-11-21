@@ -109,8 +109,13 @@ export default function Home() {
                     ul: ({ children }) => <ul className="list-disc pl-4 my-1">{children}</ul>,
                     ol: ({ children }) => <ol className="list-decimal pl-4 my-1">{children}</ol>,
                     li: ({ children }) => <li className="mb-1 pl-1 marker:text-(--accent-glow)">{children}</li>,
+                    h2: ({ children }) => (
+                      <h2 className="mt-2 mb-1 font-bold text-lg" style={{ color: 'var(--accent-primary)' }}>
+                        {children}
+                      </h2>
+                    ),
                     h3: ({ children }) => (
-                      <h3 className="mt-2 mb-1 font-bold text-lg" style={{ color: 'var(--accent-primary)' }}>
+                      <h3 className="mt-2 mb-1 font-bold text-xl" style={{ color: 'var(--accent-primary)' }}>
                         {children}
                       </h3>
                     ),
@@ -119,6 +124,13 @@ export default function Home() {
                         {children}
                       </h4>
                     ),
+                    strong: ({ children }) => <strong className="font-bold">{children}</strong>,
+                    a: ({ children, href }) => (
+                      <a href={href} className="text-(--accent-primary) underline hover:opacity-80 transition-opacity">
+                        {children}
+                      </a>
+                    ),
+                    hr: () => <hr className="my-2 border-border" />,
                   }}
                 >
                   {completion}
@@ -130,12 +142,12 @@ export default function Home() {
 
         {error && (
           <p className="text-center" style={{ color: 'var(--text-secondary)' }}>
-            Sorry, the genie has vanished. Please try again later.
+            Sorry, you ran out of wishes. Please try again later.
           </p>
         )}
       </main>
 
-      <footer className="text-center py-4">
+      <footer className="text-center pt-6 border-t border-border animate-fade-in-up">
         <p style={{ color: 'var(--text-secondary)' }}>
           Developed by{' '}
           <a
