@@ -31,7 +31,7 @@ export default function Home() {
         <div className="flex items-center justify-center gap-4">
           <Image
             src={genie}
-            alt="Gift Genie"
+            alt="Gênio"
             width={60}
             height={60}
             className="w-15 h-15 max-[480px]:w-12 max-[480px]:h-12"
@@ -49,7 +49,7 @@ export default function Home() {
             <textarea
               name="userPrompt"
               id="userPrompt"
-              placeholder="e.g., My sister who loves hiking, sci-fi and discovering new places to eat..."
+              placeholder="Ex.: Minha irmã adora fazer trilhas, curte ficção científica e está sempre descobrindo lugares novos para comer..."
               value={userPrompt}
               onChange={(e) => setUserPrompt(e.target.value)}
               required
@@ -73,7 +73,7 @@ export default function Home() {
             >
               <Image
                 src={lamp}
-                alt="Lamp"
+                alt="Lâmpada"
                 width={156}
                 height={156}
                 className={`w-39 h-39 max-[480px]:w-32 max-[480px]:h-32 transition-all duration-[0.4s] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-110 hover:-rotate-5 focus:scale-110 focus:-rotate-5 ${
@@ -89,7 +89,7 @@ export default function Home() {
                 className="text-[1.5rem] max-[480px]:text-[1.5rem] font-semibold opacity-90"
                 style={{ color: 'var(--text-secondary)' }}
               >
-                {isLoading ? 'Summoning Gift Ideas...' : 'Rub the Lamp'}
+                {isLoading ? 'Invocando ideias de presentes...' : 'Esfregue a lâmpada'}
               </span>
             </button>
           </div>
@@ -142,14 +142,14 @@ export default function Home() {
 
         {error && (
           <p className="text-center" style={{ color: 'var(--text-secondary)' }}>
-            Sorry, you ran out of wishes. Please try again later.
+            O gênio precisa de um descanso! Tente novamente daqui a pouco.
           </p>
         )}
       </main>
 
       <footer className="text-center pt-6 border-t border-border animate-fade-in-up">
         <p style={{ color: 'var(--text-secondary)' }}>
-          Developed by{' '}
+          Desenvolvido por{' '}
           <a
             href="https://www.github.com/leandrosousaljs/"
             target="_blank"
