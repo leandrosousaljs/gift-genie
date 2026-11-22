@@ -1,5 +1,5 @@
 import { createOpenAI } from '@ai-sdk/openai';
-import { createTextStreamResponse, streamText, toTextStream } from 'ai';
+import { createUIMessageStreamResponse, streamText, toUIMessageStream } from 'ai';
 
 import { instructions } from '@/app/api/recommend/instructions';
 
@@ -19,13 +19,16 @@ export async function POST(req: Request) {
       tools: {
         web_search: openai.tools.webSearch({}),
       },
-      onError({ error }) {
-        console.error('Streaming error:', error);
-      },
     });
 
-    return createTextStreamResponse({
-      stream: toTextStream({ stream: result.stream }),
+    return createUIMessageStreamResponse({
+      stream: toUIMessageStream({
+        stream: result.stream,
+        onError: (error) => {
+          console.error('Streaming error:', error);
+          return error instanceof Error ? error.message : String(error);
+        },
+      }),
     });
   } catch (error) {
     console.error('Error in /api/recommend:', error);

@@ -13,7 +13,9 @@ export default function Home() {
 
   const { completion, complete, isLoading, error } = useCompletion({
     api: '/api/recommend',
-    streamProtocol: 'text',
+    onError: (error) => {
+      console.error('Completion error:', error);
+    },
   });
 
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
@@ -142,7 +144,7 @@ export default function Home() {
 
         {error && (
           <p className="text-center" style={{ color: 'var(--text-secondary)' }}>
-            O gênio precisa de um descanso! Tente novamente daqui a pouco.
+            O gênio precisa de um descanso! Tente novamente mais tarde.
           </p>
         )}
       </main>
