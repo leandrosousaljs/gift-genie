@@ -29,9 +29,9 @@ export default function Home() {
 
   return (
     <div className="app-container">
-      <header className="animate-fade-in-down">
+      <header>
         <div>
-          <Image src={genie} alt="Gênio" width={60} height={60} className="drop-shadow-glow" />
+          <Image src={genie} alt="Gênio" width={60} height={60} />
           <h1>Gift Genie</h1>
         </div>
       </header>
@@ -78,7 +78,7 @@ export default function Home() {
         )}
       </main>
 
-      <footer className="animate-fade-in-up">
+      <footer>
         <p>
           Desenvolvido por{' '}
           <a href="https://www.github.com/leandrosousaljs/" target="_blank" rel="noopener noreferrer">
