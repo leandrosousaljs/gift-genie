@@ -50,7 +50,7 @@ export default function Home() {
           </div>
 
           <div className={`lamp-container ${isLoading ? 'scale-90' : ''}`}>
-            <button type="submit" disabled={isLoading} className={`${isLoading ? '' : ''}`}>
+            <button type="submit" disabled={isLoading}>
               <Image
                 src={lamp}
                 alt="Lâmpada"
