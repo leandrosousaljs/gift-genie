@@ -31,7 +31,7 @@ export default function Home() {
     <div className="app-container">
       <header className="animate-fade-in-down">
         <div>
-          <Image src={genie} alt="Gênio" width={60} height={60} className="drop-shadow-accent" />
+          <Image src={genie} alt="Gênio" width={60} height={60} className="drop-shadow-glow" />
           <h1>Gift Genie</h1>
         </div>
       </header>
@@ -56,12 +56,7 @@ export default function Home() {
                 alt="Lâmpada"
                 width={156}
                 height={156}
-                className={`${isLoading ? 'animate-rub-lamp' : ''}`}
-                style={{
-                  filter: isLoading
-                    ? 'drop-shadow(0 0 30px var(--accent-hover))'
-                    : 'drop-shadow(0 0 8px var(--accent-glow))',
-                }}
+                className={`${isLoading ? 'animate-rub-lamp drop-shadow-hover' : 'drop-shadow-glow'}`}
               />
               <span>{isLoading ? 'Invocando ideias de presentes...' : 'Esfregue a lâmpada'}</span>
             </button>
@@ -79,21 +74,14 @@ export default function Home() {
         </section>
 
         {error && (
-          <p className="text-center" style={{ color: 'var(--text-secondary)' }}>
-            O gênio precisa de um descanso! Tente novamente mais tarde.
-          </p>
+          <p className="text-center text-secondary">O gênio precisa de um descanso! Tente novamente mais tarde.</p>
         )}
       </main>
 
       <footer className="animate-fade-in-up">
-        <p style={{ color: 'var(--text-secondary)' }}>
+        <p>
           Desenvolvido por{' '}
-          <a
-            href="https://www.github.com/leandrosousaljs/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: 'var(--accent-primary)' }}
-          >
+          <a href="https://www.github.com/leandrosousaljs/" target="_blank" rel="noopener noreferrer">
             Leandro Sousa
           </a>
         </p>

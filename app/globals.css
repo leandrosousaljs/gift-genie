@@ -5,6 +5,9 @@
   --color-ring: var(--ring);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent-primary);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
 }
 
 :root {
@@ -61,12 +64,13 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground overflow-x-hidden;
-    font-family: var(--font-inter);
-  }
+
   html {
     font-family: var(--font-inter);
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
   }
 }
 
@@ -119,8 +123,12 @@
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .drop-shadow-accent {
+  .drop-shadow-glow {
     filter: drop-shadow(0 0 8px var(--accent-glow));
+  }
+
+  .drop-shadow-hover {
+    filter: drop-shadow(0 0 20px var(--accent-hover));
   }
 }
 
@@ -148,8 +156,7 @@
       @apply flex-1;
 
       textarea {
-        @apply flex-1 bg-transparent border-0 border-b-2 border-white/20 rounded-none min-h-[calc(1.5em*3+1.2rem)] leading-normal py-3 px-0 text-[1.2rem] max-[480px]:text-[1.25rem] resize-none transition-[border-color] duration-300 ease-in-out overflow-y-hidden focus:outline-none focus:border-(--accent-primary) placeholder:text-white/40;
-        color: var(--text-primary);
+        @apply flex-1 bg-transparent border-0 border-b-2 border-white/20 rounded-none min-h-[calc(1.5em*3+1.2rem)] leading-normal py-3 px-0 text-[1.2rem] max-[480px]:text-[1.25rem] resize-none transition-[border-color] duration-300 ease-in-out overflow-y-hidden focus:outline-none focus:border-accent placeholder:text-white/40 text-primary;
       }
 
       .lamp-container {
@@ -163,8 +170,7 @@
           }
 
           span {
-            @apply text-[1.5rem] max-[480px]:text-[1.5rem] font-semibold opacity-90;
-            color: var(--text-secondary);
+            @apply text-[1.5rem] max-[480px]:text-[1.5rem] font-semibold opacity-90 text-secondary;
           }
         }
       }
@@ -215,7 +221,7 @@
           }
 
           a {
-            @apply text-(--accent-primary) underline hover:opacity-80 transition-opacity;
+            @apply text-accent underline hover:opacity-80 transition-opacity;
           }
 
           hr {
@@ -228,8 +234,12 @@
     footer {
       @apply text-center pt-6 border-t border-border;
 
+      p {
+        @apply text-secondary;
+      }
+
       a {
-        @apply underline hover:opacity-80 transition-opacity;
+        @apply underline hover:opacity-80 transition-opacity text-accent;
       }
     }
   }
