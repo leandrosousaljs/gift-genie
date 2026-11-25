@@ -32,11 +32,14 @@ export default function Home() {
       <header>
         <div>
           <Image src={genie} alt="Gênio" width={60} height={60} />
-          <h1>Gift Genie</h1>
+          <h1>Gênio dos Presentes</h1>
         </div>
       </header>
 
       <main>
+        <h2 className="text-center text-secondary my-6 text-xl">
+          Descreva quem vai ganhar o presente e o Gênio cuida do resto.
+        </h2>
         <form onSubmit={handleSubmit} className="mb-2">
           <div className="w-full flex">
             <textarea
